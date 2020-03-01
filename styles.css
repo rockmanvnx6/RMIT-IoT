@@ -576,3 +576,8 @@ border-color: #E6ECF1 !important
 .app-name-link{
 font-weight: bold;
 }
+
+
+.search input:focus {
+    box-shadow: none!important;
+}
