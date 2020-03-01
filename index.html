@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Notes</title>
+  <link rel="shortcut icon" href="./favicon.ico" />
+  <link rel="icon" href="./favicon.png" type="image/x-icon"/>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Notes for Software Engineer Process and Tools RMIT 2019">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/medium-editor/5.23.3/css/themes/default.min.css" type="text/css" media="screen" charset="utf-8">
+  <script src="./scripts/autolist.min.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css">
+  <script src="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  
+</head>
+<body>
+  <div id="app"></div>
+  <div class="container">
+    <a class="buttons" onClick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+        <svg style="width: 20px;left: 50%;
+        position: relative;
+        transform: translateX(-50%);" aria-hidden="true" focusable="false" data-prefix="far" data-icon="long-arrow-alt-up" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" class="svg-inline--fa fa-long-arrow-alt-up fa-w-8 fa-3x"><path fill="currentColor" d="M235.515 139.515l-99.029-99.03c-4.686-4.686-12.284-4.686-16.971 0l-99.029 99.03C12.926 147.074 18.28 160 28.97 160H100v308c0 6.627 5.373 12 12 12h32c6.627 0 12-5.373 12-12V160h71.03c10.69 0 16.044-12.926 8.485-20.485z" class=""></path></svg>
+    </a>
+    <a class="buttons" onclick="switchFont()">
+      <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="font-case" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="svg-inline--fa fa-font-case fa-w-20 fa-3x"><g class="fa-group"><path fill="currentColor" d="M624 160h-32a16 16 0 0 0-16 16v1.81c-18.9-11-40.58-17.81-64-17.81a128.14 128.14 0 0 0-128 128v32a128.14 128.14 0 0 0 128 128c23.42 0 45.1-6.78 64-17.81V432a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16V176a16 16 0 0 0-16-16zm-64 160a48 48 0 0 1-96 0v-32a48 48 0 0 1 96 0z" class="fa-secondary"></path><path fill="currentColor" d="M229.88 85.69A32 32 0 0 0 199.58 64h-47.16a32 32 0 0 0-30.3 21.69L.85 426.89A16 16 0 0 0 16 448h50.62a16 16 0 0 0 15.16-10.89L100.85 384h150.3l19.07 53.11A16 16 0 0 0 285.38 448H336a16 16 0 0 0 15.16-21.11zM129.58 304L176 174.74 222.42 304z" class="fa-primary"></path></g></svg>
+    </a>
+  
+    <div class="note buttons">
+      <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="clipboard" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="svg-inline--fa fa-clipboard fa-w-12 fa-3x"><path fill="currentColor" d="M336 64h-80c0-35.3-28.7-64-64-64s-64 28.7-64 64H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM192 40c13.3 0 24 10.7 24 24s-10.7 24-24 24-24-10.7-24-24 10.7-24 24-24zm144 418c0 3.3-2.7 6-6 6H54c-3.3 0-6-2.7-6-6V118c0-3.3 2.7-6 6-6h42v36c0 6.6 5.4 12 12 12h168c6.6 0 12-5.4 12-12v-36h42c3.3 0 6 2.7 6 6z" class=""></path></svg>  
+    </div>
+  </div>
+  <div class="closeBtn display-n ">
+    <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="svg-inline--fa fa-times fa-w-10 fa-9x"><path fill="currentColor" d="M207.6 256l107.72-107.72c6.23-6.23 6.23-16.34 0-22.58l-25.03-25.03c-6.23-6.23-16.34-6.23-22.58 0L160 208.4 52.28 100.68c-6.23-6.23-16.34-6.23-22.58 0L4.68 125.7c-6.23 6.23-6.23 16.34 0 22.58L112.4 256 4.68 363.72c-6.23 6.23-6.23 16.34 0 22.58l25.03 25.03c6.23 6.23 16.34 6.23 22.58 0L160 303.6l107.72 107.72c6.23 6.23 16.34 6.23 22.58 0l25.03-25.03c6.23-6.23 6.23-16.34 0-22.58L207.6 256z" class=""></path></svg>
+  </div>
+  <div class="edit-holder">
+    <div class="editable"></div>
+      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="erase svg-inline--fa fa-trash-alt fa-w-14 fa-9x"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z" class=""></path></svg>  
+    </div>
+  <script>
+    if (typeof navigator.serviceWorker !== 'undefined') {
+      navigator.serviceWorker.register('sw.js')
+    }
+    function switchFont() {
+      if(document.body.style.fontFamily == "") {
+        document.body.style.fontFamily = "'sansforgetica-regular', Helvetica, Arial, sans-serif";
+        document.querySelectorAll("code").forEach(each => each.style.fontFamily = "'sansforgetica-regular', Helvetica, Arial, sans-serif");
+      } else {
+        document.body.style.fontFamily = "";
+        document.querySelectorAll("code").forEach(each => each.style.fontFamily = "");
+      }
+    }
+
+    let autolist = new AutoList();
+
+    let editor = new MediumEditor('.editable', {
+      placeholder: {
+        text: 'Remembered what you read?\nNow type it here.',
+        hideOnClick: true
+      },
+      extensions: {
+        'autolist': autolist
+      }, 
+      toolbar: {
+        buttons: ['h2', 'h3', 'bold', 'italic', 'quote', 'pre', 'unorderedlist','orderedlist']
+      }
+    });
+    const note = document.querySelector(".note");
+    const editHolder = document.querySelector(".edit-holder");
+    const clipBoard = document.querySelector(".fa-clipboard");
+    const closeBtn = document.querySelector(".closeBtn");
+    const erase = document.querySelector(".erase");
+    const editable = document.querySelector(".editable");
+
+    [closeBtn, note].map(each => each.addEventListener("click", () => {
+      editHolder.classList.toggle("edit");
+      clipBoard.classList.toggle("display-n");
+      closeBtn.classList.toggle("display-n");
+      document.body.classList.toggle("noscroll");
+    }, false));
+
+    erase.addEventListener("click", () => {
+      while (editable.firstChild) {
+        editable.removeChild(editable.firstChild);
+      }
+    });
+    let num = 0;
+    mermaid.initialize({ startOnLoad: false });
+    window.$docsify = {
+      markdown: {
+        renderer: {
+          code: function(code, lang) {
+            if (lang === "mermaid") {
+              return (
+                '<div class="mermaid">' + mermaid.render('mermaid-svg-' + num++, code) + "</div>"
+              );
+            }
+            return this.origin.code.apply(this, arguments);
+          }
+        }
+      },
+      themeColor: '#b53f3f',
+      disqus: 'sept-notes',
+      name: 'Notes',
+      repo: 'rockmanvnx6/Notes',
+      loadSidebar: true,
+      themeable: {
+        responsiveTables: false // default
+      },
+      subMaxLevel: 4,
+      search: 'auto', // default
+      plugins: [
+        function(hook) {
+          var footer = [
+            '<div id="disqus_thread"></div>'
+          ].join('');
+
+          hook.afterEach(function(html) {
+            return html + footer;
+          });
+
+          hook.doneEach(function() {
+            let content = document.querySelector(".markdown-section");
+            
+            if(window.sq) {
+              sq.pageContent = content.innerText;
+            }
+          });
+        },
+        function(hook, vm) {
+          hook.beforeEach(function(html) {
+            var url =
+              'https://github.com/rockmanvnx6/SeptNotes/blob/master/' +
+              vm.route.file;
+            var editHtml = '[📝 EDIT DOCUMENT](' + url + ')\n';
+
+            return (
+              editHtml +
+              html
+            );
+          });
+        }
+      ],
+      search : [
+        '/',
+       
+      ],
+      search: {
+        maxAge: 86400000, // Expiration time, the default one day
+        paths: 'auto', // or 'auto'
+        placeholder: 'Type to search',
+
+        
+        noData: 'No Results!',
+
+        // Headline depth, 1 - 6
+        depth: 6,
+
+        hideOtherSidebarContent: true, // whether or not to hide other sidebar content
+      }
+    }
+  </script>
+  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-php.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-java.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-javascript.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-json.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/disqus.min.js"></script>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'https://austinph.me/SeptNotes/';  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://sept-notes.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+    <script src="//unpkg.com/docsify/lib/plugins/zoom-image.min.js"></script>
+  
+</body>
+</html>
