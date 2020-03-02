@@ -368,9 +368,9 @@ table {
     width: 100%;
 }
 
-.markdown-section td {
+/* .markdown-section td {
     width: 50%;
-}
+} */
 
 .contribute td {
     width: initial!important;
