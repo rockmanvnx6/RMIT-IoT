@@ -102,5 +102,30 @@ But there is no interfaces in Python as it implements multiple inheritance of cl
 ## Sense HAT
 
 -   Attached on top of the Pi via the 40 GPIO Pins
--   
+-   Sense HAT has several integrated circuit based sensors that can be used for many different types of experiments, applications, and even games.
+
+-   It allows the Pi to sense the world around it
+
+-   Sense HAT has an 8x8 RGB LED matrix, a five-button joystick includes the following sensers:
+    -   Gyroscope, Accelerometer, Magnetometer, Temperature, Barometric, pressure, Humidity
+
+## Raspbian
+
+?> Raspbian is official Linux operating system that you install  on your microSD card.
+
+### Raspbian packages
+
+Once you have SSH'd into Raspbian, you can open Terminal and check for all the packages with the following command:
+
+```bash
+dpkg --get-selections
+```
+
+
+
+Install package name:
+
+```bash
+sudo apt-get install packageName
+```
 
